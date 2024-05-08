@@ -7,7 +7,7 @@ export const Card = (props) => {
           alt={props.data.teaserImg}
         />
         <figcaption>
-          <h3>"{props.data.title}</h3>
+          <h3>{props.data.title}</h3>
           <address>{props.data.author}</address>
           <ul className="tag-list">
             {props.data.tags.keywords.map((tag) => (
@@ -31,7 +31,7 @@ export const DefaultCard = () => {
       <figure>
         <img src={"./assets/images/teaser.jpg"} alt="Placeholder Image" />
         <figcaption>
-          <h3>Titel</h3>
+          <h3>Title</h3>
           <address>John Doe</address>
           <ul className="tag-list">
             <li>Keyword 1</li>

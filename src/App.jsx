@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react"
 
 import Header from "@components/Header"
-import Main from "@/components/Main"
 import Footer from "@components/Footer"
 
-import { Card, DefaultCard } from "@/components/Card"
-import { Button } from "@/components/Button"
+import { Card, DefaultCard } from "@components/Card"
+import { Button } from "@components/Button"
 
 import { fetchData } from "@helpers/fetchData"
 
@@ -44,7 +43,7 @@ function App() {
   return (
     <>
       <Header />
-      <Main>
+      <main>
         <section className="filter-section p-m">
           <h2>Filter</h2>
           <h3>Schlagwörter</h3>
@@ -86,7 +85,7 @@ function App() {
             )}
           </ul>
         </section>
-      </Main>
+      </main>
       <Footer />
     </>
   )

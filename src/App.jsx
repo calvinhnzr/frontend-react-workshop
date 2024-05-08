@@ -22,6 +22,7 @@ function App() {
     fetchData(url).then((data) => {
       setApiData(data)
 
+      // saves all tags in a single object
       data.articles.map((item) => {
         Object.keys(item.tags).forEach((key) => {
           if (allFilterTags[key]) {

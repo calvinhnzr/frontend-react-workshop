@@ -1,4 +1,8 @@
+import { useAtom } from "jotai"
+import { filterTagAtom } from "@/store"
+
 const Card = (props) => {
+  const [filterTag, setFilterTag] = useAtom(filterTagAtom)
   return (
     <li data-js-card>
       <figure>
@@ -11,7 +15,9 @@ const Card = (props) => {
           <address>{props.data.author}</address>
           <ul className="tag-list">
             {props.data.tags.keywords.map((tag) => (
-              <li key={tag}>{tag}</li>
+              <li key={tag} className={filterTag === tag ? "is-active" : ""}>
+                {tag}
+              </li>
             ))}
           </ul>
         </figcaption>

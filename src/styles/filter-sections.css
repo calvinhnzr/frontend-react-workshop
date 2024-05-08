@@ -70,7 +70,7 @@
 }
 
 .is-active {
-  background-color: var(--color-th-orange);
+  background-color: var(--color-th-orange) !important;
   color: var(--color-white);
   &:hover {
     background-color: var(--color-th-orange);
@@ -124,5 +124,7 @@
     margin-bottom: 0;
     background-color: var(--color-grey);
     font-size: var(--s);
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
   }
 }

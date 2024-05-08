@@ -22,17 +22,14 @@ function App() {
     fetchData(url).then((data) => {
       setApiData(data)
 
-      // saves all tags in a single object
-      data.articles.map((item) => {
-        Object.keys(item.tags).forEach((key) => {
-          if (allFilterTags[key]) {
-            allFilterTags[key] = allFilterTags[key]
-              .concat(item.tags[key])
-              .filter((item, index, self) => self.indexOf(item) === index)
-          } else {
-            allFilterTags[key] = item.tags[key]
-          }
-        })
+      data.articles.forEach((item) => {
+        if (allFilterTags.keywords) {
+          allFilterTags.keywords = allFilterTags.keywords
+            .concat(item.tags.keywords)
+            .filter((item, index, self) => self.indexOf(item) === index)
+        } else {
+          allFilterTags.keywords = item.tags.keywords
+        }
       })
     })
   }, [])
@@ -43,21 +40,17 @@ function App() {
       <main>
         <Filters />
         <section>
-          {apiData ? (
-            <ul className="card-grid" id="article-container">
-              {filterTag
-                ? apiData.articles
-                    .filter((article) =>
-                      article.tags.keywords.includes(filterTag)
-                    )
-                    .map((article) => <Card key={article.id} data={article} />)
-                : apiData.articles.map((article) => (
-                    <Card key={article.id} data={article} />
-                  ))}
-            </ul>
-          ) : (
-            <p>Loading...</p>
-          )}
+          <ul className="card-grid" id="article-container">
+            {apiData ? (
+              apiData.articles
+                .filter((item) =>
+                  filterTag ? item.tags.keywords.includes(filterTag) : true
+                )
+                .map((item, index) => <Card key={index} data={item} />)
+            ) : (
+              <p>Loading...</p>
+            )}
+          </ul>
         </section>
       </main>
       <Footer />

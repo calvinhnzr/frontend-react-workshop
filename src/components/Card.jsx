@@ -1,10 +1,12 @@
 import { useAtom } from "jotai"
 import { filterTagAtom } from "@/store"
+import { useEffect } from "react"
 
 const Card = (props) => {
   const [filterTag, setFilterTag] = useAtom(filterTagAtom)
+
   return (
-    <li data-js-card>
+    <li>
       <figure>
         <img
           src={"./assets/images/" + props.data.teaserImg}

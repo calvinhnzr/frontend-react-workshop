@@ -43,8 +43,8 @@ function App() {
   return (
     <>
       <Header />
-      <main>
-        <section className="filter-section p-m">
+      <Main>
+        <FilterSection>
           <h2>Filter</h2>
           <h3>Schlagwörter</h3>
           <ul className="horizontal-flow">
@@ -67,8 +67,8 @@ function App() {
               Filter löschen
             </button>
           </div>
-        </section>
-        <section>
+        </FilterSection>
+        <CardSection>
           <h2>Beiträge</h2>
           <ul className="card-grid">
             {/* <DefaultCard /> */}
@@ -84,11 +84,23 @@ function App() {
               <p>Loading...</p>
             )}
           </ul>
-        </section>
-      </main>
+        </CardSection>
+      </Main>
       <Footer />
     </>
   )
 }
 
 export default App
+
+const Main = (props) => {
+  return <main>{props.children}</main>
+}
+
+const FilterSection = (props) => {
+  return <section className="filter-section p-m">{props.children}</section>
+}
+
+const CardSection = (props) => {
+  return <section>{props.children}</section>
+}

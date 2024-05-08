@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react"
-import { useAtom } from "jotai"
+import { useEffect } from "react"
+import { useAtom, useAtomValue } from "jotai"
 
 import Card from "@components/Card"
 import Header from "@components/Header"
@@ -12,8 +12,8 @@ import { apiDataAtom, allFilterTagsAtom, filterTagAtom } from "@/store"
 
 function App() {
   const [apiData, setApiData] = useAtom(apiDataAtom)
-  const [allFilterTags, setAllFilterTags] = useAtom(allFilterTagsAtom)
-  const [filterTag, setFilterTag] = useAtom(filterTagAtom)
+  const allFilterTags = useAtomValue(allFilterTagsAtom)
+  const filterTag = useAtomValue(filterTagAtom)
 
   const url =
     "https://gist.githubusercontent.com/vschaefer/8d26be957bbc8607f60da5dd1b251a78/raw/38c62965139a156d4a605be1e046ad8278235fff/articles.json"

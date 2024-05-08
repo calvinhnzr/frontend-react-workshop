@@ -1,9 +1,8 @@
-import { useAtom } from "jotai"
+import { useAtom, useAtomValue } from "jotai"
 import { allFilterTagsAtom, filterTagAtom } from "@/store"
-import { useEffect } from "react"
 
 export const Filters = () => {
-  const [allFilterTags, setAllFilterTags] = useAtom(allFilterTagsAtom)
+  const allFilterTags = useAtomValue(allFilterTagsAtom)
   const [filterTag, setFilterTag] = useAtom(filterTagAtom)
 
   function handleClick(e) {

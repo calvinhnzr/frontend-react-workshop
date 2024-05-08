@@ -1,9 +1,8 @@
-import { useAtom } from "jotai"
+import { useAtomValue } from "jotai"
 import { filterTagAtom } from "@/store"
-import { useEffect } from "react"
 
 const Card = (props) => {
-  const [filterTag, setFilterTag] = useAtom(filterTagAtom)
+  const filterTag = useAtomValue(filterTagAtom)
 
   return (
     <li>

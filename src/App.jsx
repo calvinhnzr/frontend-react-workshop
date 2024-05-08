@@ -87,23 +87,6 @@ function App() {
           </ul>
         </section>
       </Main>
-
-      {/* <main>
-        <Filters />
-        <section>
-          <ul className="card-grid" id="article-container">
-            {apiData ? (
-              apiData.articles
-                .filter((item) =>
-                  filterTag ? item.tags.keywords.includes(filterTag) : true
-                )
-                .map((item, index) => <Card key={index} data={item} />)
-            ) : (
-              <p>Loading...</p>
-            )}
-          </ul>
-        </section>
-      </main> */}
       <Footer />
     </>
   )

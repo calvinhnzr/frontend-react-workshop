@@ -1,9 +1,4 @@
-import { useAtomValue } from "jotai"
-import { filterTagAtom } from "@/store"
-
-const Card = (props) => {
-  const filterTag = useAtomValue(filterTagAtom)
-
+export const Card = (props) => {
   return (
     <li>
       <figure>
@@ -16,7 +11,10 @@ const Card = (props) => {
           <address>{props.data.author}</address>
           <ul className="tag-list">
             {props.data.tags.keywords.map((tag) => (
-              <li key={tag} className={filterTag === tag ? "is-active" : ""}>
+              <li
+                key={tag}
+                className={props.filterState === tag ? "is-active" : ""}
+              >
                 {tag}
               </li>
             ))}
@@ -26,4 +24,21 @@ const Card = (props) => {
     </li>
   )
 }
-export default Card
+
+export const DefaultCard = () => {
+  return (
+    <li>
+      <figure>
+        <img src={"./assets/images/teaser.jpg"} alt="Placeholder Image" />
+        <figcaption>
+          <h3>Titel</h3>
+          <address>John Doe</address>
+          <ul className="tag-list">
+            <li>Keyword 1</li>
+            <li>Keyword 2</li>
+          </ul>
+        </figcaption>
+      </figure>
+    </li>
+  )
+}

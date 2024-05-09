@@ -32,7 +32,6 @@ function App() {
   function handleClick(e) {
     e.preventDefault()
     const filter = e.target.textContent
-
     setFilterState(filter)
   }
 
